@@ -1,0 +1,3 @@
+[run]
+source = DO_site2
+omit = DO_site2/test*
