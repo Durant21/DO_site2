@@ -1,0 +1,16 @@
+[Unit]
+Description=uWSGI DO_site2 server instance
+After=syslog.target
+
+[Service]
+ExecStart=/usr/local/bin/uwsgi --ini-paste /webapps/site2/DO_site2/DO_site2/production.ini
+# Requires systemd version 211 or newer
+RuntimeDirectory=/webapps/site2/DO_site2/DO_site2/
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
